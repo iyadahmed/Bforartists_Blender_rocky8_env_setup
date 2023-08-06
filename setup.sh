@@ -15,7 +15,7 @@ dnf -y install sudo
 sudo dnf -y update
 sudo dnf -y install wget
 sudo dnf -y install scl-utils gcc-toolset-11 bash python3 libSM
-sudo dnf -y install pulseaudio-libs-devel
+sudo dnf -y install jack-audio-connection-kit-devel pulseaudio-libs-devel
 sudo dnf -y --enablerepo=powertools install libstdc++-static
 sudo dnf -y install gcc gcc-c++ git subversion make cmake mesa-libGL-devel mesa-libEGL-devel libX11-devel libXxf86vm-devel libXi-devel libXcursor-devel libXrandr-devel libXinerama-devel
 sudo dnf -y install wayland-devel wayland-protocols-devel libxkbcommon-devel dbus-devel kernel-headers
