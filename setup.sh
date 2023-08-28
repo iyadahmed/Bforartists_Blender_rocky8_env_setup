@@ -2,14 +2,6 @@
 
 set -e
 
-shallow_clone_if_does_not_exist() {
-    URL="$1"
-    FOLDER="$2"
-    if [ ! -d "$FOLDER" ]; then
-        git clone --depth=1 "$URL" "$FOLDER"
-    fi
-}
-
 # Install needed packages
 dnf -y install sudo
 sudo dnf -y update
@@ -19,13 +11,6 @@ sudo dnf -y install jack-audio-connection-kit-devel pulseaudio-libs-devel
 sudo dnf -y --enablerepo=powertools install libstdc++-static
 sudo dnf -y install gcc gcc-c++ git subversion make cmake mesa-libGL-devel mesa-libEGL-devel libX11-devel libXxf86vm-devel libXi-devel libXcursor-devel libXrandr-devel libXinerama-devel
 sudo dnf -y install wayland-devel wayland-protocols-devel libxkbcommon-devel dbus-devel kernel-headers
-
-# Compile and install Jack audio library from source
-# shallow_clone_if_does_not_exist https://github.com/jackaudio/jack2.git jack2
-# pushd jack2
-# ./waf configure
-# ./waf install
-# popd
 
 # Install local CUDA repo
 sudo dnf -y localinstall ./cuda-repo-rhel8-12-2-local-12.2.0_535.54.03-1.x86_64.rpm
